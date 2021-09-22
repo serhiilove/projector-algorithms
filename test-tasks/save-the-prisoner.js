@@ -10,14 +10,8 @@
  */
 
 function saveThePrisoner (n, m, s) {
-    if (m % n === 0) return s - 1 < 1 ? n : s - 1;
-
-    const leftPrisoners = n - s + 1;
-
-    const leftCandies = Math.trunc(m / n) > 0 ? m % n : m;
-
-    return leftCandies > leftPrisoners ? leftCandies - leftPrisoners : s + leftCandies - 1;
+    return (((m % n) + (s - 1)) % n) || n;
 }
 
-const result = saveThePrisoner(1, 1, 1);
+const result = saveThePrisoner(3, 5, 3);
 console.log(result);
