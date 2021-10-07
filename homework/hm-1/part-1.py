@@ -1,2 +1,4 @@
-hello_world = 'Hello world!'
-print(hello_world)
+# a. for (i = n; i > 1; i /= 2)
+#  		db_call()
+
+# підходить, бо ми зробимо порядку n/2 викликів
