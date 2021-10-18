@@ -13,4 +13,20 @@ def find_maj_el(arr: arr) -> int:
             counter -= 1
     return candidate
 
-print('Majority element: ', find_maj_el(arr))
+def find_maj_el_2(arr: arr) -> int:
+    list_of_pairs = []
+    maj_pair = [None, 0]
+    for el in arr:
+        pair = [item for item in list_of_pairs if item[0] == el]
+        if len(pair) != 0:
+            pair[0][1] += 1
+        else:
+            list_of_pairs.append([el, 1])
+
+    for pair in list_of_pairs:
+        if pair[1] > maj_pair[1]:
+            maj_pair = pair
+    return maj_pair[0]
+
+print('Majority element n: ', find_maj_el(arr))
+print('Majority element n^2: ', find_maj_el_2(arr))
