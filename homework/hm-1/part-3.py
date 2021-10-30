@@ -1,4 +1,5 @@
-arr = [1, 2, 2, 2, 2, 2, 2, 8, 9, 10]
+# arr = [1, 2, 2, 2, 2, 2, 2, 8, 9, 10]
+arr = [5, 5, 5, 5, 5, 5, 5, 5, 2, 2, 2, 2, 2, 2, 2, 5, 3, 3, 5, 3]
 
 def find_maj_el(arr: arr) -> int:
     counter = 0
@@ -28,5 +29,5 @@ def find_maj_el_2(arr: arr) -> int:
             maj_pair = pair
     return maj_pair[0]
 
-print('Majority element n: ', find_maj_el(arr))
-print('Majority element n^2: ', find_maj_el_2(arr))
+print('Majority element 1: ', find_maj_el(arr))
+print('Majority element 2: ', find_maj_el_2(arr))
