@@ -40,10 +40,17 @@ public bool isDark() {
     count = 0
     for (int j = 0; j < N; ++j) {
         for (int i = 0; i < N; ++i) {
-            count += 1 * (image[i, j] >= 128) // use branchless technique to avoid JGE assembly instructions
+            count += 1 * (image[i, j] >= 128) // avoid JGE assembly instructions
         }
    }
    return count < N * (N / 2);
 }
 
- 
+//B.
+//To evaluate the polynomial: y = a_n * x^n + a_n-1 * x^(n-1) + ... + a_1 * x + a_0
+//the following code uses 2n multiplications. Give a faster function:
+//y = a[0]
+//xi = 1
+//for i = [1, n]
+//   xi = x * xi
+//   y = y + a[i]*xi
