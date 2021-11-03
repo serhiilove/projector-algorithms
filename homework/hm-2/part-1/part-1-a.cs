@@ -16,7 +16,7 @@
 //   return count < N * N / 2;
 //}
 
-// solution A
+// solution A-1
 const int N = 4096;
 byte [,] image = new byte[N, N];
 public bool isDark() {
@@ -33,7 +33,7 @@ public bool isDark() {
    return count < half;
 }
 
-// solution B
+// solution A-2
 const int N = 4096;
 byte [,] image = new byte[N, N];
 public bool isDark() {
@@ -46,11 +46,3 @@ public bool isDark() {
    return count < N * (N / 2);
 }
 
-//B.
-//To evaluate the polynomial: y = a_n * x^n + a_n-1 * x^(n-1) + ... + a_1 * x + a_0
-//the following code uses 2n multiplications. Give a faster function:
-//y = a[0]
-//xi = 1
-//for i = [1, n]
-//   xi = x * xi
-//   y = y + a[i]*xi
