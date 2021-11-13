@@ -1,26 +1,35 @@
-# N - кількість базових станцій
-# C [ c1, ... , cn] - кількість клієнтів базових станцій
-# Q - кількість запитів
+n = int(input())
+c = list(map(int, input().split()))
+q = int(input())
 
-test_1 = '5\n2 0 2 3 1\n9\nCOUNT 2 4\nENTER 2\nLEAVE 1\nCOUNT 2 4\nLEAVE 5\nCOUNT 4 5\nCOUNT 1 2\nENTER 2\nCOUNT 1 2'
+queries = list()
 
-def parseInput(input: str) -> list:
-    lines = input.splitlines()
-    data = [None] * 4
-    data[0] = int(lines[0])
-    data[1] = list(map(int, lines[1].split()))
-    data[2] = int(lines[2])
-    data[3] = lines[3:len(lines)]
-
-    return data
-
-def parseEvent(e: str) -> tuple:
-    pass
+for qi in range(q):
+    query = input()
+    queries.append(query)
 
 
-def countClients(input: str) -> None:
-    data = parseInput(input)
-    print(data)
+def get_sum(arr: list) -> int:
+    arr_sum = 0
+    for item in arr:
+        arr_sum += item
+    return arr_sum
 
 
-countClients(test_1)
+def count_clients(clients: list, queries_list: list) -> None:
+    for q_str in queries_list:
+        parsed_query = q_str.split()
+        event = parsed_query[0]
+
+        if event == 'COUNT':
+            start = int(parsed_query[1]) - 1
+            end = int(parsed_query[2])
+            print(get_sum(clients[start:end]))
+            continue
+
+        tower = int(parsed_query[1]) - 1
+        d = 1 if event == 'ENTER' else -1
+        clients[tower] += d
+
+
+count_clients(c, queries)
