@@ -9,13 +9,6 @@ for qi in range(q):
     queries.append(query)
 
 
-def get_sum(arr: list) -> int:
-    arr_sum = 0
-    for item in arr:
-        arr_sum += item
-    return arr_sum
-
-
 def count_clients(clients: list, queries_list: list) -> None:
     for q_str in queries_list:
         parsed_query = q_str.split()
@@ -24,7 +17,8 @@ def count_clients(clients: list, queries_list: list) -> None:
         if event == 'COUNT':
             start = int(parsed_query[1]) - 1
             end = int(parsed_query[2])
-            print(get_sum(clients[start:end]))
+            print(sum((clients[start:end])))
+
             continue
 
         tower = int(parsed_query[1]) - 1
