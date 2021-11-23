@@ -64,9 +64,9 @@ def print_sum(l: int, r: int) -> None:
     print(sum)
 
 
-def update(i: int, val: int) -> None:
-    blocks[i // blk_sz] += val - c[i]
-    c[i] = val
+# def update(i: int, val: int) -> None:
+#     blocks[i // blk_sz] += val - c[i]
+#     c[i] = val
 
 
 def parse_queries(queries_list: list) -> list:
@@ -90,7 +90,11 @@ def process_queries(clients: list, events: list) -> None:
         d = 1 if evt[0] == 'ENTER' else -1
         new_value = clients[evt[1] - 1] + d
 
-        update(evt[1] - 1, new_value)
+        # update(evt[1] - 1, new_value)
+
+        blocks[(evt[1] - 1) // blk_sz] += d
+        c[evt[1] - 1] = new_value
+
 
 
 preprocess(c, n)
