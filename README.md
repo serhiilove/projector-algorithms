@@ -1,2 +1,2 @@
 # projector-algorithms
-Projector algorithms course test task
+Projector. Algorithms course.
